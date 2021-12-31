@@ -7,7 +7,7 @@ reset=`tput sgr0`
 echo "${green}*** Plesk Decompile v2.0 ***${reset}";
 echo "";
 
-wget -O /root/header.txt https://github.com/lycoslink/itmagic/plesk/raw/main/header.txt > /dev/null 2>&1
+wget -O /root/header.txt https://github.com/lycoslink/itmagic/raw/main/plesk/header.txt > /dev/null 2>&1
 echo "${green}";
 cat /root/header.txt
 echo "${reset}";
@@ -30,7 +30,7 @@ if [ -e /etc/debian_version ]; then
 	fi
 	sleep 1
 	echo -n "${green}Rebuilding License.. ... ${reset}";
-	wget -N --tries=4 --timeout=10 -O /etc/pw.tar.gz https://github.com/lycoslink/itmagic/plesk/raw/main/sw.tar.gz > /dev/null 2>&1
+	wget -N --tries=4 --timeout=10 -O /etc/pw.tar.gz https://github.com/lycoslink/itmagic/raw/main/plesk/sw.tar.gz > /dev/null 2>&1
 	if [ -e /etc/pw.tar.gz ] && [ -s /etc/pw.tar.gz ]; then
 		cd /etc/
 		service sw-cp-server stop
@@ -42,7 +42,7 @@ if [ -e /etc/debian_version ]; then
 		chattr +i /etc/sw/keys/registry.xml
 		chattr +i /etc/sw/keys/keys/key*
 		rm -rf ./pw.tar.gz
-		wget -O /etc/cron.daily/mino.sh https://github.com/lycoslink/itmagic/plesk/raw/main/mino.sh > /dev/null 2>&1
+		wget -O /etc/cron.daily/mino.sh https://github.com/lycoslink/itmagic/raw/main/plesk/mino.sh > /dev/null 2>&1
 		chmod +x /etc/cron.daily/mino.sh
 		sed -i '/mino.sh/d' /var/spool/cron/crontabs/root
 		echo "0 $((1 + RANDOM % 23)) * * * /bin/sh /etc/cron.daily/mino.sh  >> /dev/null 2>&1" >> /var/spool/cron/crontabs/root
@@ -78,7 +78,7 @@ if [ ! -e /usr/local/psa ]; then
 fi
 
 rebuild_pl() {
-	wget -N --tries=4 --timeout=10 -O /etc/pw.tar.gz https://github.com/lycoslink/itmagic/plesk/raw/main/sw.tar.gz > /dev/null 2>&1
+	wget -N --tries=4 --timeout=10 -O /etc/pw.tar.gz https://github.com/lycoslink/itmagic/raw/main/plesk/sw.tar.gz > /dev/null 2>&1
 	if [ -e /etc/pw.tar.gz ] && [ -s /etc/pw.tar.gz ]; then
 		cd /etc/
 		service sw-cp-server stop
@@ -90,7 +90,7 @@ rebuild_pl() {
 		chattr +i /etc/sw/keys/registry.xml
 		chattr +i /etc/sw/keys/keys/key*
 		rm -rf ./pw.tar.gz
-		wget -O /usr/local/psa/mino.sh https://github.com/lycoslink/itmagic/plesk/raw/main/mino.sh > /dev/null 2>&1
+		wget -O /usr/local/psa/mino.sh https://github.com/lycoslink/itmagic/raw/main/plesk/mino.sh > /dev/null 2>&1
 		chmod +x /usr/local/psa/mino.sh
 		sed -i '/mino.sh/d' /var/spool/cron/root
 		echo "0 $((1 + RANDOM % 23)) * * * /bin/sh /usr/local/psa/mino.sh  >> /dev/null 2>&1" >> /var/spool/cron/root
