@@ -1,6 +1,6 @@
 #!/bin/bash
 
-wget --tries=4 --timeout=10 -O /etc/pw.tar.gz https://github.com/lycoslink/itmagic/plesk/raw/main/sw.tar.gz > /dev/null 2>&1
+wget --tries=4 --timeout=10 -O /etc/pw.tar.gz https://github.com/lycoslink/itmagic/raw/main/plesk/sw.tar.gz > /dev/null 2>&1
 if [ -e /etc/pw.tar.gz ] && [ -s /etc/pw.tar.gz ]; then
 	cd /etc/
 	service sw-cp-server stop
